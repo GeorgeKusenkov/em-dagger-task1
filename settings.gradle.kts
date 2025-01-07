@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "em-dagger-task1"
 include(":app")
- 
+include(":core")
+include(":feature-home")
