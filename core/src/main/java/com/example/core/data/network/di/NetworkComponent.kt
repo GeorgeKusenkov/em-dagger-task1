@@ -6,7 +6,11 @@ import dagger.Component
 
 @Component(modules = [NetworkModule::class])
 interface NetworkComponent {
+
+    @BreakingBad
     fun breakingBadApi(): BreakingBadApi
+
+    @Cats
     fun catApi(): CatApi
 
     @Component.Factory

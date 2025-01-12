@@ -39,8 +39,7 @@ android {
 }
 
 dependencies {
-//    implementation(project(":core"))
-//    implementation(project(":app"))
+    implementation(project(":core"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -57,8 +56,7 @@ dependencies {
 
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
-    implementation(project(":core"))
-
+    
     kapt (libs.dagger.android.processor)
     kapt(libs.dagger.compiler)
 

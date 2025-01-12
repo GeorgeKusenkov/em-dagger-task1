@@ -1,23 +1,18 @@
 package com.example.feature.home.di
 
-import com.example.core.data.network.breakingbadapi.BreakingBadApi
-import com.example.core.data.network.catapi.CatApi
-import com.example.feature.home.data.repository.BreakingBadRepository
-import com.example.feature.home.data.repository.CatRepository
+import com.example.feature.home.data.repository.BreakingBadRepositoryImpl
+import com.example.feature.home.data.repository.CatRepositoryImpl
+import com.example.feature.home.domain.BreakingBadRepository
+import com.example.feature.home.domain.CatRepository
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 
 @Module
-class HomeModule {
+abstract class HomeModule {
 
-    @Provides
-    fun provideBreakingBadRepository(api: BreakingBadApi): BreakingBadRepository {
-        return BreakingBadRepository(api)
-    }
+    @Binds
+    abstract fun bindBreakingBadRepository(impl: BreakingBadRepositoryImpl): BreakingBadRepository
 
-    @Provides
-    fun provideCatRepository(api: CatApi): CatRepository {
-        return CatRepository(api)
-    }
-
+    @Binds
+    abstract fun bindCatsRepository(impl: CatRepositoryImpl): CatRepository
 }

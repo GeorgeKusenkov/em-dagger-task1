@@ -6,7 +6,7 @@ import dagger.Component
 
 @Component(modules = [HomeModule::class], dependencies = [NetworkComponent::class])
 interface HomeComponent {
-    fun viewModel(): HomeViewModel
+    fun viewModelFactory(): HomeViewModel.Factory
 
     @Component.Factory
     interface Factory {

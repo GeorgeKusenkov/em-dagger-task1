@@ -38,18 +38,22 @@ class NetworkModule {
     }
 
     @Provides
+    @BreakingBad
     fun provideBreakingBadApi(@BreakingBad retrofit: Retrofit): BreakingBadApi {
         return retrofit.create(BreakingBadApi::class.java)
     }
 
     @Provides
+    @Cats
     fun provideCatApi(@Cats retrofit: Retrofit): CatApi {
         return retrofit.create(CatApi::class.java)
     }
 }
 
 @Qualifier
+@Retention(AnnotationRetention.RUNTIME)
 annotation class BreakingBad
 
 @Qualifier
+@Retention(AnnotationRetention.RUNTIME)
 annotation class Cats

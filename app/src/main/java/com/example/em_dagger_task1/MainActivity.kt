@@ -19,23 +19,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.em_dagger_task1.ui.theme.Emdaggertask1Theme
 import com.example.feature.home.R
-import com.example.feature.home.di.DaggerHomeComponent
 import com.example.feature.home.presentation.HomeScreen
 import com.example.feature.home.presentation.HomeViewModel
-import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var viewModel: HomeViewModel
+    private lateinit var viewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val networkComponent = (application as App).networkComponent
-        viewModel = DaggerHomeComponent.factory()
-            .create(networkComponent)
-            .viewModel()
+        val homeComponent = (application as App).homeComponent
+
+        //Передаем @Assisted время обновления с использованием AssistedFactory
+        viewModel = homeComponent.viewModelFactory().create(10L)
 
         enableEdgeToEdge()
         setContent {
@@ -47,7 +44,7 @@ class MainActivity : ComponentActivity() {
                 ) { innerPadding ->
                     Image(
                         painter = painterResource(id = R.drawable.br_cats),
-                        contentDescription = "Description of the image",
+                        contentDescription = "Header main image",
                         modifier = Modifier
                             .padding(top = 20.dp)
                             .fillMaxWidth()

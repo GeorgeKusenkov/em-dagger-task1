@@ -62,6 +62,8 @@ dependencies {
     implementation(libs.dagger)
     implementation (libs.dagger.android.support)
     implementation (libs.dagger.android)
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.viewmodel)
     kapt (libs.dagger.android.processor)
     kapt(libs.dagger.compiler)
 
